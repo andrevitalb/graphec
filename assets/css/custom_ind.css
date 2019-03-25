@@ -1,0 +1,227 @@
+@import url('https://fonts.googleapis.com/css?family=Rubik');
+
+/*-------------------
+General
+--------------------*/
+
+* {
+	font-family: Rubik, sans-serif !important;
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	background-image: url(https://i.imgur.com/1YOMsYg.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+}
+
+#us_hr {
+	width: 100%;
+	margin: 25px auto;
+	border-width: 3px;
+}
+
+#dump_hr {
+	width: 100%;
+	border-width: 2px;
+	margin: 25px auto 0;
+}
+
+#main_hr_top {
+	width: 25%;
+	border-width: 3px;
+	margin: 0 auto 10px;
+}
+
+#main_hr_bot {
+	width: 25%;
+	border-width: 3px;
+	margin: 20px auto 0;
+}
+
+/*-------------------
+Header / Navbar
+--------------------*/
+
+.logo img {
+	width: 156px;
+}
+
+nav * {
+	text-transform: uppercase;
+}
+
+nav li *:hover {
+	color: #7E7E7E !important;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #525252;
+    border-color: #525252;
+}
+
+.btn-primary:hover {
+    color: #ccc;
+    background-color: #272727;
+    border-color: #272727;
+}
+
+/*-------------------
+Intro
+--------------------*/
+
+.visual {
+	background-image: url(https://i.imgur.com/LtUali8.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	height: 100vh;
+}
+
+.visual .text-block {
+	padding: 200px 0 220px ;
+}
+
+.heading-holder h1 {
+	letter-spacing: 1.5px;
+}
+
+.heading-holder h2 {
+	font-size: 3.5rem;
+	line-height: 3.6rem;
+	color: #838383;
+}
+
+/*-------------------
+About Us
+--------------------*/
+
+#us {
+	background-image: url(https://i.imgur.com/1YOMsYg.jpg);
+	background-size: cover;
+	background-attachment: fixed;
+	padding-top: 4vh;
+	height: 100vh;
+}
+
+#us * {
+	color: #fff;
+}
+
+#us h2 {
+	font-size: 6rem;
+}
+
+#subt {
+	margin: 25px auto 15px;
+	font-size: 28px;
+	font-weight: 600;
+}
+
+.develops {
+	margin: 2.5vh 0 1vh;
+}
+
+.develops * {
+	text-align: center;
+}
+
+.develops a {
+	margin-bottom: 1.5rem;
+	width: 120px;
+	height: 120px;
+	display: inline-block;
+	background-size: cover;
+	transition: .5s all;
+	cursor: pointer;
+	border-radius: 50%;
+}
+
+.develops a:hover {
+	width: 135px;
+	height: 135px;	
+}
+
+.develops p.devs {
+	font-size: 20px !important;
+	font-weight: 600;
+}
+
+#dump {
+	margin-top: 7vh;
+}
+
+#dump p {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+#dump a {
+	width: 100px;
+	height: 100px;
+}
+
+#dump_name {
+	font-size: 18px;
+}
+
+#vital {
+	background-image: url(https://i.imgur.com/NqWiei7.png);
+}
+
+#vital:hover {
+	background-image: url(https://i.imgur.com/Y2HS5lu.png);
+}
+
+#vane {
+	background-image: url(https://i.imgur.com/Cs6geRm.png);
+}
+
+#vane:hover {
+	background-image: url(https://i.imgur.com/xXKlcry.png);
+}
+
+#omar {
+	background-image: url(https://i.imgur.com/zhEcOir.png);
+}
+
+#omar:hover {
+	background-image: url(https://i.imgur.com/5qQMAJk.png);
+}
+
+#uaa {
+	background-image: url(https://i.imgur.com/L869HbI.png);
+}
+
+#uaa:hover {
+	background-image: url(https://i.imgur.com/h5bxS6Y.png);
+	width: 110px;
+	height: 110px;
+}
+
+/*-------------------
+Footer
+--------------------*/
+
+footer {
+	color: rgba(255, 255, 255, 0.4);
+	background-color: rgba(0, 0, 0, .8);
+	padding: 4vh 0;
+}
+
+footer p {
+	margin: 0;
+	font-size: 16px;
+}
+
+.vital {
+	color: #fff;
+	transition: .5s all;
+}
+
+.vital:hover {
+	color: #ccc;
+}

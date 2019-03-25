@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>graphEc | Graficadora de Oferta y Demanda</title>
+		<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+		<meta name="description" content="Graficadora de Oferta y Demanda">
+		<meta name="theme-color" content="#101012">
+
+		<link rel="icon" type="image/png" href="https://i.imgur.com/Xaqpvwb.png">
+		<link rel="shortcut icon" type="image/x-icon" href="assets/images/favicon.ico">
+        <link rel="apple-touch-icon" href="https://i.imgur.com/Xaqpvwb.png">
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+		<script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+	 	<script src="http://cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+
+		<link rel="stylesheet" href="assets/css/morris.css">
+		<link rel="stylesheet" href="assets/css/custom.css">
+		<link rel="stylesheet" href="assets/css/all.css">
+
+		<script src = "https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
+		<script src = "assets/js/morris.min.js"></script>
+	</head>
+	<body>
+		<div class="wrapper">
+			<header id="header">
+				<div class="container">
+					<div class="logo"><a href="#"><img src="https://i.imgur.com/i0Nag9U.png" alt="Sports"></a></div>
+					<nav id="nav">
+						<div class="opener-holder">
+							<a href="index.html" class="nav-opener"><span></span></a>
+						</div>
+						<a href="grafs.html" class="btn btn-primary rounded">Graficar</a>
+						<div class="nav-drop">
+							<ul>
+								<li><a href="index.html">Inicio</a></li>
+								<li><a href="index.html#us">Nosotros</a></li>
+							</ul>
+						</div>
+					</nav>
+				</div>
+			</header>
+
+			<div class="container main_page">
+				<div class="col-md-12 main_title">
+					<h1>Graficar</h1>
+				</div>
+				
+				<div class="row">
+					<div class="col-md-8 vals">
+						<div class="col-md-12">
+							<div class="col-md-offset-1">
+								<h2>Introduce tus valores:</h2><br/>
+							</div>
+							<form id = "newData" class = "data" method = "post">
+								<div class="row tags">
+									<div class="col-md-2">Gráfica</div>
+									<div class="col-md-1">On</div>
+									<div class="col-md-3">Cantidad de Productos</div>
+									<div class="col-md-3 col-md-offset-1">Pendiente</div>
+								</div>
+								<div class="row ofe">
+									<p class = "col-md-2">QSx: </p>
+									<div class="col-md-1"></div>
+									<input type="number" name = "cantP_Ofe" required data-msg-required = "Campo requerido." id ="cantP_Ofe" class = "col-md-3" value = "" />
+									<p class="col-md-1">+</p>
+									<input type="number" name = "pend_Ofe" required data-msg-required = "Campo requerido." id ="pend_Ofe" class = "col-md-3" value = "" />
+									<p class="col-md-2">* Px</p>
+								</div>
+								<div class="row ofe">
+									<p class = "col-md-2">QDx: </p>
+									<div class="col-md-1"></div>
+									<input type="number" name = "cantP_Dem" required data-msg-required = "Campo requerido." id ="cantP_Dem" class = "col-md-3" value = "" />
+									<p class="col-md-1">-</p>
+									<input type="number" name = "pend_Dem" required data-msg-required = "Campo requerido." id ="pend_Dem" class = "col-md-3" value = "" />
+									<p class="col-md-2">* Px</p>
+								</div>
+								<div class="row ofe sec">
+									<p class = "col-md-2">QS'x: </p>
+									<input type="checkbox" name = "new_Ofe" id ="new_Ofe" class = "col-md-1">
+									<input type="number" name = "act_cantP_Ofe" id ="act_cantP_Ofe" class = "col-md-3" disabled value = "" />
+									<p class="col-md-1">+</p>
+									<input type="number" name = "act_pend_Ofe" id ="act_pend_Ofe" class = "col-md-3" disabled value = "" />
+									<p class="col-md-2">* Px</p>
+								</div>
+								<div class="row sec">
+									<p class = "col-md-2">QD'x: </p>
+									<input type="checkbox" name = "new_Dem" id ="new_Dem" class = "col-md-1">
+									<input type="number" name = "act_cantP_Dem" id ="act_cantP_Dem" class = "col-md-3" disabled value = "" />
+									<p class="col-md-1">-</p>
+									<input type="number" name = "act_pend_Dem" id ="act_pend_Dem" class = "col-md-3" disabled value = "" />
+									<p class="col-md-2">* Px</p>
+								</div>
+							</form>
+						</div>
+					</div>
+					<div class="col-md-4 datos">
+						<h3>Datos de las gráficas:</h3><br/>
+						<div class="row" id = "data_1">
+							<div class="col-md-2"><p>QSx-QDx:</p></div>
+							<div class="col-md-7 dats">
+								<p class="data_tl">Precio de equilibrio: </p>
+								<p class="data_tl">Cantidad de equilibrio: </p>
+							</div>
+							<div class="col-md-3 but">
+								<p class="data_info" id="pnt_eq"></p>
+								<p class="data_info" id="cnt_eq"></p>
+							</div>
+						</div>
+						<div class="row" id = "data_2">
+							<div class="col-md-2"><p>QS'x-QDx:</p></div>
+							<div class="col-md-7 dats">
+								<p class="data_tl">Precio de equilibrio: </p>
+								<p class="data_tl">Cantidad de equilibrio: </p>
+							</div>
+							<div class="col-md-3 but">
+								<p class="data_info" id="pnt_eq_2"></p>
+								<p class="data_info" id="cnt_eq_2"></p>
+							</div>
+						</div>
+						<div class="row" id = "data_3">
+							<div class="col-md-2"><p>QSx-QD'x:</p></div>
+							<div class="col-md-7 dats">
+								<p class="data_tl">Precio de equilibrio: </p>
+								<p class="data_tl">Cantidad de equilibrio: </p>
+							</div>
+							<div class="col-md-3 but">
+								<p class="data_info" id="pnt_eq_3"></p>
+								<p class="data_info" id="cnt_eq_3"></p>
+							</div>
+						</div>
+						<div class="row" id = "data_4">
+							<div class="col-md-2"><p>QS'x-QD'x:</p></div>
+							<div class="col-md-7 dats">
+								<p class="data_tl">Precio de equilibrio: </p>
+								<p class="data_tl">Cantidad de equilibrio: </p>
+							</div>
+							<div class="col-md-3 but">
+								<p class="data_info" id="pnt_eq_4"></p>
+								<p class="data_info" id="cnt_eq_4"></p>
+							</div>
+						</div>
+						<div class="row" id = "tabla_grafs"></div>
+						<div class="but">
+							<button onclick = "graf(), data_table(), equ()" href = "javascript;" class = "btn btn_calc">Calcular</button>
+						</div>
+					</div>	
+				</div>
+
+				<div class="row graph">
+					<div class="col-md-8 col-md-offset-2">
+						<div id="oferta_demanda" style="width: 100%;"></div>
+					</div>
+				</div>
+
+				<div class="row">
+					<canvas id="oferta_demanda"></canvas>
+				</div>
+			</div>
+
+			<footer>
+				<div class="container">
+					<div class="row">
+						<div class="col-md-6 col-md-offset-3 text-center">
+							<p>&copy; Copyright graphEc 2019 | Diseño por <a href="https://www.linkedin.com/in/santiagovital/" target = "_blank" class="vital">Santiago Vital</a></p>
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<script src = "assets/js/graph.js"></script>
+		<script src = "assets/js/main.js"></script>
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+	</body>
+</html>
